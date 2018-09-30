@@ -1,5 +1,5 @@
 const setupCMD = "!createrolemessage"
-let initialMessage = `**React to the messages below to set your region**`;
+let initialMessage = `**Reacciona a los mensajes a continuación para configurar tu región**`;
 const roles = ["LATAM"];
 const reactions = ["🥇"];
 const botToken = process.env.BOT_TOKEN;
@@ -10,12 +10,12 @@ bot.login(botToken);
 
 
 
-if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
+if (roles.length !== reactions.length) throw "La lista de roles y las reacciones no tienen la misma longitud.";
 
 function generateMessages(){
     var messages = [];
     messages.push(initialMessage);
-    for (let role of roles) messages.push(`React below set your region to **"${role}"**`);
+    for (let role of roles) messages.push(`Reacciona abajo establece tu región a **"${role}"**`);
     return messages;
 }
 
