@@ -1,7 +1,7 @@
 const setupCMD = "!createrolemessage"
-let initialMessage = `**React to the messages below to set your region**`;
-const roles = ["NA-E", "NA-W", "EU"];
-const reactions = ["🥇", "🥈", "🥉"];
+let initialMessage = `**Reacciona a los mensajes a continuación para configurar tu región**`;
+const roles = ["LATAM"];
+const reactions = ["🥇"];
 const botToken = process.env.BOT_TOKEN;
 
 const Discord = require('discord.js');
@@ -10,19 +10,19 @@ bot.login(botToken);
 
 
 
-if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
+if (roles.length !== reactions.length) throw "¡La lista de roles y la lista de reacciones no tienen la misma longitud!";
 
 function generateMessages(){
     var messages = [];
     messages.push(initialMessage);
-    for (let role of roles) messages.push(`React below set your region to **"${role}"**`);
+    for (let role of roles) messages.push(`Reacciona abajo establece tu región a **"${role}"**`);
     return messages;
 }
 
 
 bot.on("message", message => {
     if(!message.channel.id === "495741200343760911") return;
-    if (message.author.id === "495816794678755328" && message.content.toLowerCase() == setupCMD){
+    if (message.author.id === "165619901212524545" && message.content.toLowerCase() == setupCMD){
         var toSend = generateMessages();
         let mappedArray = [[toSend[0], false], ...toSend.slice(1).map( (message, idx) => [message, reactions[idx]])];
         for (let mapObj of mappedArray){
@@ -44,9 +44,7 @@ bot.on('raw', event => {
         let channel = bot.channels.get(event.d.channel_id);
         let message = channel.fetchMessage(event.d.message_id).then(msg=> {
         let user = msg.guild.members.get(event.d.user_id);
-        let role1 = msg.guild.roles.find(r => r.name === "NA-E");
-        let role2 = msg.guild.roles.find(r => r.name === "NA-W");
-        let role3 = msg.guild.roles.find(r => r.name === "EU");
+        let role1 = msg.guild.roles.find(r => r.name === "LATAM");
          		let rankchannel = msg.guild.channels.find('name', 'rank-me');
 
          
