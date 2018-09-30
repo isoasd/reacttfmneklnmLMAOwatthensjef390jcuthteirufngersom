@@ -1,7 +1,7 @@
 const setupCMD = "!createrolemessage"
 let initialMessage = `**React to the messages below to set your region**`;
-const roles = ["NA-E", "NA-W", "EU"];
-const reactions = ["🥇", "🥈", "🥉"];
+const roles = ["LATAM"];
+const reactions = ["🥇"];
 const botToken = process.env.BOT_TOKEN;
 
 const Discord = require('discord.js');
@@ -44,9 +44,7 @@ bot.on('raw', event => {
         let channel = bot.channels.get(event.d.channel_id);
         let message = channel.fetchMessage(event.d.message_id).then(msg=> {
         let user = msg.guild.members.get(event.d.user_id);
-        let role1 = msg.guild.roles.find(r => r.name === "NA-E");
-        let role2 = msg.guild.roles.find(r => r.name === "NA-W");
-        let role3 = msg.guild.roles.find(r => r.name === "EU");
+        let role1 = msg.guild.roles.find(r => r.name === "LATAM");
          		let rankchannel = msg.guild.channels.find('name', 'rank-me');
 
          
