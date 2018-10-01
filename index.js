@@ -45,7 +45,7 @@ bot.on('raw', event => {
         let message = channel.fetchMessage(event.d.message_id).then(msg=> {
         let user = msg.guild.members.get(event.d.user_id);
         let role1 = msg.guild.roles.find(r => r.name === "PC");
-        let role2 = msg.guild.roles.find(r => r.name === "PS4");
+        let role2 = msg.guild.roles.find(r => r.name === "PS 4");
         let role3 = msg.guild.roles.find(r => r.name === "LATAM");
          		let rankchannel = msg.guild.channels.find('name', 'rank-me');
 
