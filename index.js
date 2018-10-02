@@ -1,5 +1,5 @@
 const setupCMD = "!createrolemessage"
-let initialMessage = `**Reacciona a los mensajes a continuación para configurar tu región**`;
+let initialMessage = `**Reacciona a los mensajes a continuación para configurar tus roles**`;
 const roles = ["PC", "PS4", "LATAM"];
 const reactions = ["💻", "🎮", "🥇"];
 const botToken = process.env.BOT_TOKEN;
